@@ -238,6 +238,12 @@ Object {
       expect(project.packageConfigs).toEqual(["packages/*"]);
     });
 
+    it("returns lerna custom packageConfigs over yarn packageConfigs", async () => {
+      const cwd = await initFixture("yarn-workspaces-lerna-config");
+      const project = new Project(cwd);
+      expect(project.packageConfigs).toEqual(["packages/*"]);
+    });
+
     it("throws with friendly error if workspaces are not configured", () => {
       const project = new Project(testDir);
       project.config.useWorkspaces = true;
