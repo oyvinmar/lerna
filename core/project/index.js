@@ -84,7 +84,7 @@ class Project {
         );
       }
 
-      return workspaces.packages || workspaces;
+      return this.config.packages || workspaces.packages || workspaces;
     }
 
     return this.config.packages || [Project.PACKAGE_GLOB];
